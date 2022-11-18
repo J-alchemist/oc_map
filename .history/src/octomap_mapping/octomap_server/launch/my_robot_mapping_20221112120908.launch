@@ -1,0 +1,30 @@
+<launch>
+	<node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
+		<param name="resolution" value="0.05" />
+		
+		<!-- fixed map frame (set to 'map' if SLAM or localization running!) -->
+		<param name="frame_id" type="string" value="map" />
+		<param name="base_frame_id" type="string" value="imu" />
+
+		<!-- 启动彩色渲染 -->
+	    <param name = "height_map" value = "true" />
+	    <param name = "colored_map" value = "false" /> 
+
+		<!-- 启动半径过滤 -->
+   		<!-- <param name = "outrem_radius" type = "double" value = "1.0" />
+    	<param name = "outrem_neighbors" type = "int" value = "10" />		 -->
+
+		<!-- when building map, set to false to speed up!!! -->
+		<param name = "latch" value = "false" /> 
+
+		<!-- set min to speed up! -->
+		<param name="sensor_model/max_range" value="15.0" />
+		
+		<!-- 点云输入 --> 
+		<!-- <remap from="cloud_in" to="/velodyne_points_filtered" /> -->
+	/laser_cloud_edge
+	</node>
+</launch>
+
+
+
